@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { UNITS, getUnit } from "@/lib/data";
@@ -19,7 +20,7 @@ const GALLERY = {
     { src: "/white-chickens.png", alt: "White chickens" },
   ],
   "forestry-fishery": [
-    { src: "/fish-1.png", alt: "Fish pond" },
+    { src: "/fish-1.jpg", alt: "Fish pond" },
     { src: "/fish-2.png", alt: "Fish production" },
     { src: "/fish-3.png", alt: "Fish harvest" },
   ],
@@ -67,7 +68,15 @@ export default function UnitDetailPage({ params }) {
             <h3 style={{ fontSize: 17, color: "var(--forest-700)", marginBottom: 16 }}>Photo gallery</h3>
             <div className="gallery-grid">
               {gallery.map((img) => (
-                <img key={img.src} src={img.src} alt={img.alt} className="gallery-tile" style={{ objectFit: "cover" }} />
+                <Image
+                  key={img.src}
+                  src={img.src}
+                  alt={img.alt}
+                  className="gallery-tile"
+                  width={700}
+                  height={525}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>

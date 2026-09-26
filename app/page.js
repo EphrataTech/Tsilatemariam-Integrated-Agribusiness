@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import UnitCard from "@/components/UnitCard";
 import TeamCard from "@/components/TeamCard";
@@ -25,7 +26,14 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-image-wrap">
-            <img src="/hero.png" alt="Gondar farmland" className="hero-image" style={{ objectFit: "cover" }} />
+            <Image
+              src="/hero.png"
+              alt="Gondar farmland"
+              className="hero-image"
+              width={800}
+              height={640}
+              priority
+            />
             <div className="hero-fact-card">
               <div className="fact"><b>2009</b><span>EST.</span></div>
               <div className="fact"><b>Gondar</b><span>ETHIOPIA</span></div>
