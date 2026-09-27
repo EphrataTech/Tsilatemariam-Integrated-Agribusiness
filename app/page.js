@@ -79,7 +79,13 @@ export default function HomePage() {
             <h2>From our Founder &amp; General Manager</h2>
           </div>
           <div className="ceo-block">
-            <div className="ceo-photo">{CEO.name.charAt(0)}</div>
+            <Image
+              src="/ceo.png"
+              alt={CEO.name}
+              className="ceo-photo"
+              width={480}
+              height={480}
+            />
             <div>
               <p className="role">{CEO.role}</p>
               <h3>{CEO.name}</h3>

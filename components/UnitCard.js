@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import UnitIcon from "./UnitIcon";
 
@@ -5,6 +6,15 @@ export default function UnitCard({ unit }) {
   const planned = unit.status.toLowerCase().includes("planned");
   return (
     <Link href={`/units/${unit.id}`} className={`unit-card${planned ? " unit-card--planned" : ""}`}>
+      {unit.image ? (
+        <Image
+          src={unit.image}
+          alt={unit.name}
+          className="unit-card-image"
+          width={640}
+          height={360}
+        />
+      ) : null}
       <div className="unit-card-icon">
         <UnitIcon id={unit.icon} size={30} />
       </div>

@@ -15,6 +15,7 @@ export function generateMetadata({ params }) {
 
 const GALLERY = {
   poultry: [
+    { src: "/chick.png", alt: "Chick" },
     { src: "/red-chickens.png", alt: "Red chickens" },
     { src: "/white-chicken1.png", alt: "White chicken" },
     { src: "/white-chickens.png", alt: "White chickens" },
@@ -25,6 +26,7 @@ const GALLERY = {
     { src: "/fish-3.png", alt: "Fish harvest" },
   ],
   honey: [
+    { src: "/honey-4.png", alt: "Honey products" },
     { src: "/honey-1.png", alt: "Honey production" },
     { src: "/honey-2.png", alt: "Honey processing" },
     { src: "/honey-3.png", alt: "Honey products" },
@@ -33,6 +35,7 @@ const GALLERY = {
     { src: "/meat-1.png", alt: "Meat production" },
     { src: "/meat-2.png", alt: "Meat processing" },
   ],
+  feed: [{ src: "/animal-feed.png", alt: "Animal feed" }],
 };
 
 export default function UnitDetailPage({ params }) {
@@ -67,16 +70,17 @@ export default function UnitDetailPage({ params }) {
           <div className="wrap">
             <h3 style={{ fontSize: 17, color: "var(--forest-700)", marginBottom: 16 }}>Photo gallery</h3>
             <div className="gallery-grid">
-              {gallery.map((img) => (
-                <Image
-                  key={img.src}
-                  src={img.src}
-                  alt={img.alt}
-                  className="gallery-tile"
-                  width={700}
-                  height={525}
-                  loading="lazy"
-                />
+              {gallery.map((img, i) => (
+                <div key={img.src} className={`gallery-item${i === 0 ? " gallery-item--featured" : ""}`}>
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    className="gallery-tile"
+                    width={700}
+                    height={525}
+                    loading="lazy"
+                  />
+                </div>
               ))}
             </div>
           </div>
